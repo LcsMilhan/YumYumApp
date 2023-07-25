@@ -2,9 +2,9 @@ package com.example.yumyum.data.repository
 
 import com.example.yumyum.common.Resource
 import com.example.yumyum.data.remote.MealApiService
-import com.example.yumyum.domain.model.CategoryResponse
-import com.example.yumyum.domain.model.MealDetailResponse
-import com.example.yumyum.domain.model.MealsResponse
+import com.example.yumyum.domain.model.meals.CategoryResponse
+import com.example.yumyum.domain.model.meals.MealDetailResponse
+import com.example.yumyum.domain.model.meals.MealsResponse
 import com.example.yumyum.domain.repository.MealRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow

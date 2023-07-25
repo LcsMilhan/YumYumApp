@@ -1,4 +1,4 @@
-package com.example.yumyum.domain.model
+package com.example.yumyum.domain.model.meals
 
 
 

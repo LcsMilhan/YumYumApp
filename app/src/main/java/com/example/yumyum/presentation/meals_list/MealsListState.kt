@@ -1,6 +1,6 @@
 package com.example.yumyum.presentation.meals_list
 
-import com.example.yumyum.domain.model.Meals
+import com.example.yumyum.domain.model.meals.Meals
 
 data class MealsListState(
     val isLoading: Boolean = false,

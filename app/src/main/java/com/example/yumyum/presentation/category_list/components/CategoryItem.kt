@@ -22,7 +22,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.example.yumyum.domain.model.Category
+import com.example.yumyum.domain.model.meals.Category
 
 @Composable
 fun SingleCategoryItem(

@@ -1,13 +1,17 @@
 package com.example.yumyum.di
 
+
 import com.example.yumyum.common.Constants.BASE_URL
 import com.example.yumyum.data.remote.MealApiService
+import com.example.yumyum.data.repository.AuthUserRepositoryImpl
 import com.example.yumyum.data.repository.MealRepositoryImpl
+import com.example.yumyum.domain.repository.AuthUserRepository
 import com.example.yumyum.domain.repository.MealRepository
 import com.example.yumyum.domain.use_case.ApiUseCases
 import com.example.yumyum.domain.use_case.GetCategoriesUseCase
 import com.example.yumyum.domain.use_case.GetMealUseCase
 import com.example.yumyum.domain.use_case.GetMealsUseCase
+import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -50,6 +54,17 @@ object AppModule {
             getMealsUseCase = GetMealsUseCase(repository),
             getMealUseCase = GetMealUseCase(repository)
         )
+    }
+
+    @Provides
+    @Singleton
+    fun providesFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
+
+
+    @Provides
+    @Singleton
+    fun providesRepositoryImpl(firebaseAuth: FirebaseAuth): AuthUserRepository {
+        return AuthUserRepositoryImpl(firebaseAuth)
     }
 
 }

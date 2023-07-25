@@ -46,7 +46,9 @@ fun CategoriesScreen(
                     textAlign = TextAlign.Start,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(horizontal = 10.dp)
+                        .padding(start = 10.dp)
+                        .weight(1f)
+                        .alignByBaseline()
                 )
             }
             LazyColumn(

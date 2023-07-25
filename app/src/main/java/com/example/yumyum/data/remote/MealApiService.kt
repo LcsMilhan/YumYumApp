@@ -1,8 +1,8 @@
 package com.example.yumyum.data.remote
 
-import com.example.yumyum.domain.model.CategoryResponse
-import com.example.yumyum.domain.model.MealDetailResponse
-import com.example.yumyum.domain.model.MealsResponse
+import com.example.yumyum.domain.model.meals.CategoryResponse
+import com.example.yumyum.domain.model.meals.MealDetailResponse
+import com.example.yumyum.domain.model.meals.MealsResponse
 import retrofit2.http.GET
 import retrofit2.http.Query
 
