@@ -1,6 +1,7 @@
 package com.example.yumyum.di
 
 
+import android.content.Context
 import com.example.yumyum.common.Constants.BASE_URL
 import com.example.yumyum.data.remote.MealApiService
 import com.example.yumyum.data.repository.AuthUserRepositoryImpl
@@ -11,19 +12,31 @@ import com.example.yumyum.domain.use_case.ApiUseCases
 import com.example.yumyum.domain.use_case.GetCategoriesUseCase
 import com.example.yumyum.domain.use_case.GetMealUseCase
 import com.example.yumyum.domain.use_case.GetMealsUseCase
+import com.example.yumyum.domain.use_case.auth.AuthUseCases
+import com.example.yumyum.domain.use_case.auth.GetSignedInUserUseCase
+import com.example.yumyum.domain.use_case.auth.SignInUseCase
+import com.example.yumyum.domain.use_case.auth.SignInWithIntentUseCase
+import com.example.yumyum.domain.use_case.auth.SignOutUseCase
+import com.google.android.gms.auth.api.identity.Identity
+import com.google.android.gms.auth.api.identity.SignInClient
 import com.google.firebase.auth.FirebaseAuth
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
-
+// TODO: CHANGE CODE
 @Module
 @InstallIn(SingletonComponent::class)
 object AppModule {
+
+    @Provides
+    @Singleton
+    fun provideOneTapSignIn(@ApplicationContext context: Context) = Identity.getSignInClient(context)
 
     @Provides
     @Singleton
@@ -60,11 +73,21 @@ object AppModule {
     @Singleton
     fun providesFirebaseAuth(): FirebaseAuth = FirebaseAuth.getInstance()
 
+    @Provides
+    @Singleton
+    fun providesRepositoryImpl(firebaseAuth: FirebaseAuth, oneTapClient: SignInClient): AuthUserRepository {
+        return AuthUserRepositoryImpl(firebaseAuth, oneTapClient)
+    }
 
     @Provides
     @Singleton
-    fun providesRepositoryImpl(firebaseAuth: FirebaseAuth): AuthUserRepository {
-        return AuthUserRepositoryImpl(firebaseAuth)
+    fun provideAuthUseCases(userRepository: AuthUserRepository): AuthUseCases {
+        return AuthUseCases(
+            signInUseCase = SignInUseCase(userRepository),
+            signInWithIntentUseCase = SignInWithIntentUseCase(userRepository),
+            getSignedInUserUseCase = GetSignedInUserUseCase(userRepository),
+            signOutUseCase = SignOutUseCase(userRepository)
+        )
     }
 
 }

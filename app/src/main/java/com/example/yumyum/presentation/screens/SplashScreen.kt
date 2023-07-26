@@ -1,13 +1,22 @@
 package com.example.yumyum.presentation.screens
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.airbnb.lottie.compose.*
+import com.airbnb.lottie.compose.LottieAnimation
+import com.airbnb.lottie.compose.LottieAnimationState
+import com.airbnb.lottie.compose.LottieCompositionSpec
+import com.airbnb.lottie.compose.LottieConstants
+import com.airbnb.lottie.compose.animateLottieCompositionAsState
+import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.yumyum.R
 import com.example.yumyum.presentation.navigation.Screen
 
@@ -50,7 +59,7 @@ private fun NavigateToRegisterScreen(
 
     if (splashAnimationState.isAtEnd && splashAnimationState.isPlaying) {
         navController.popBackStack()
-        navController.navigate(Screen.CategoriesScreen.route)
+        navController.navigate(Screen.SignInScreen.route)
     }
 
 }

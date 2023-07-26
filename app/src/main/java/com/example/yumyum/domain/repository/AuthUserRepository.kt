@@ -1,17 +1,20 @@
 package com.example.yumyum.domain.repository
 
 
-import com.example.yumyum.common.Resource
-import com.google.firebase.auth.AuthCredential
-import com.google.firebase.auth.AuthResult
-import kotlinx.coroutines.flow.Flow
+import android.content.Intent
+import android.content.IntentSender
+import com.example.yumyum.domain.model.auth.SignInResult
+import com.example.yumyum.domain.model.auth.UserData
 
-
+// TODO: CHANGE CODE
 interface AuthUserRepository {
 
-    suspend fun signInWithGoogle(credential: AuthCredential): Flow<Resource<AuthResult>>
+    suspend fun signIn(): IntentSender?
+
+    suspend fun signInWithIntent(intent: Intent): SignInResult
+
+    fun getSignedInUser(): UserData?
 
     suspend fun signOut()
-
 
 }
