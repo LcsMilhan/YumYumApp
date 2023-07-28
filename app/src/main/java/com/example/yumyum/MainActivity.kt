@@ -5,12 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
+import androidx.compose.runtime.Composable
 import com.example.yumyum.presentation.navigation.YumYumNavigation
 import com.example.yumyum.ui.theme.YumYumTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -18,9 +20,14 @@ class MainActivity : ComponentActivity() {
                 Surface(
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    YumYumNavigation()
+                    YumYumApp()
                 }
             }
         }
     }
+}
+
+@Composable
+fun YumYumApp() {
+    YumYumNavigation()
 }

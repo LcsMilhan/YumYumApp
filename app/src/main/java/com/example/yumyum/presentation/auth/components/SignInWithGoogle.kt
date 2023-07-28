@@ -10,14 +10,14 @@ import com.example.yumyum.presentation.auth.AuthViewModel
 @Composable
 fun SignInWithGoogle(
     viewModel: AuthViewModel = hiltViewModel(),
-    navigateToHomeScreen: (signedIn: Boolean) -> Unit
+    navigateToCategoriesScreen: (signedIn: Boolean) -> Unit
 ) {
 
     when(val signInWithGoogleResponse = viewModel.signInWithGoogleResponse) {
         is Response.Loading -> ProgressBar()
         is Response.Success -> signInWithGoogleResponse.data?.let { signedIn ->
             LaunchedEffect(signedIn) {
-                navigateToHomeScreen(signedIn)
+                navigateToCategoriesScreen(signedIn)
             }
         }
         is Response.Failure -> LaunchedEffect(Unit) {

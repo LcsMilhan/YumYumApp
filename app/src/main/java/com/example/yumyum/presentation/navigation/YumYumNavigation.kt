@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.yumyum.presentation.screens.AnimationSplashScreen
 import com.example.yumyum.presentation.screens.AuthScreen
 import com.example.yumyum.presentation.screens.CategoriesScreen
 import com.example.yumyum.presentation.screens.MealDetailScreen
@@ -14,18 +15,31 @@ import com.example.yumyum.presentation.screens.ProfileScreen
 
 @Composable
 fun YumYumNavigation() {
+
     val navController = rememberNavController()
+
     NavHost(
         navController = navController,
-        startDestination = Screen.AuthScreen.route
+        startDestination = Screen.SplashScreen.route
     ) {
-        // SignIn Screen
+        // Splash Screen
+        composable(
+            route = Screen.SplashScreen.route
+        ) {
+            AnimationSplashScreen(navController = navController)
+        }
+
+        // Auth Screen
         composable(
             route = Screen.AuthScreen.route
         ) {
             AuthScreen(
-                navigateToProfileScreen = {
-                    navController.navigate(Screen.ProfileScreen.route)
+                navigateToCategoriesScreen = {
+                    navController.navigate(Screen.CategoriesScreen.route) {
+                        popUpTo(navController.graph.id) {
+                            inclusive = true
+                        }
+                    }
                 }
             )
         }
@@ -36,8 +50,11 @@ fun YumYumNavigation() {
         ) {
             ProfileScreen(
                 navigateToAuthScreen = {
-                    navController.popBackStack()
-                    navController.navigate(Screen.AuthScreen.route)
+                    navController.navigate(Screen.AuthScreen.route) {
+                        popUpTo(navController.graph.id) {
+                            inclusive = true
+                        }
+                    }
                 }
             )
         }
@@ -47,6 +64,7 @@ fun YumYumNavigation() {
             route = Screen.CategoriesScreen.route
         ) {
             CategoriesScreen(
+                navController = navController,
                 onCategoryClick = { strCategory ->
                     navController.navigate("${Screen.MealsScreen.route}/${strCategory}")
                 }
@@ -71,8 +89,8 @@ fun YumYumNavigation() {
         // Meal Detail Screen
         composable(
             route = "${Screen.MealDetailScreen.route}/{idMeal}",
-            arguments = listOf(navArgument("idMeal") { type = NavType.StringType} )
-        ) {navBackStackEntry ->
+            arguments = listOf(navArgument("idMeal") { type = NavType.StringType })
+        ) { navBackStackEntry ->
             navBackStackEntry.arguments?.getString("idMeal")?.let {
                 MealDetailScreen(navController = navController)
             }

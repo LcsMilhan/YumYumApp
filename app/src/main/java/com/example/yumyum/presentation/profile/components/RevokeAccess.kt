@@ -12,6 +12,7 @@ fun RevokeAccess(
     viewModel: ProfileViewModel = hiltViewModel(),
     navigateToAuthScreen: (accessRevoked: Boolean) -> Unit
 ) {
+
     when(val revokeAccessResponse = viewModel.revokeAccessResponse) {
         is Response.Loading -> ProgressBar()
         is Response.Success -> revokeAccessResponse.data?.let { accessRevoked ->

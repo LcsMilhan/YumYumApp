@@ -12,6 +12,7 @@ fun SignOut(
     viewModel: ProfileViewModel = hiltViewModel(),
     navigateToAuthScreen: (signedOut: Boolean) -> Unit
 ) {
+
     when(val signOutResponse = viewModel.signOutResponse) {
         is Response.Loading -> ProgressBar()
         is Response.Success -> signOutResponse.data?.let { signedOut ->

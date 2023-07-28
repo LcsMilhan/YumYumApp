@@ -2,9 +2,9 @@ package com.example.yumyum.presentation.category_list.components
 
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -17,6 +17,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
@@ -32,7 +33,7 @@ fun SingleCategoryItem(
 
     Card(
         Modifier
-            .fillMaxSize()
+            .fillMaxWidth()
             .padding(10.dp)
             .clickable { onCategoryItemClick(categoryItem.strCategory) },
         elevation = CardDefaults.cardElevation(
@@ -42,21 +43,21 @@ fun SingleCategoryItem(
             containerColor = MaterialTheme.colorScheme.surface
         )
     ) {
-        Row(Modifier.fillMaxSize()) {
+        Row(Modifier.fillMaxWidth().padding(PaddingValues(5.dp))) {
             AsyncImage(
                 model = categoryItem.strCategoryThumb,
                 contentDescription = "category-image",
                 contentScale = ContentScale.FillWidth,
                 modifier = Modifier
                     .align(CenterVertically)
-                    .padding(10.dp)
+                    .clip(MaterialTheme.shapes.medium)
             )
             Spacer(
                 modifier = Modifier
-                    .width(10.dp)
+                    .width(25.dp)
             )
             Divider(
-                color = MaterialTheme.colorScheme.onSurface,
+                color = MaterialTheme.colorScheme.primary.copy(0.4f),
                 modifier = Modifier
                     .height(75.dp)
                     .width(1.dp)

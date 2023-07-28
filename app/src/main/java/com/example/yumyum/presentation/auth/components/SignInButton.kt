@@ -2,6 +2,7 @@ package com.example.yumyum.presentation.auth.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.MaterialTheme
@@ -19,25 +20,26 @@ fun SignInButton(
 ) {
 
     Button(
-        modifier = Modifier.padding(bottom = 48.dp),
         shape = MaterialTheme.shapes.medium,
         colors = ButtonDefaults.buttonColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer
         ),
-        onClick = onButtonClick
+        onClick = onButtonClick,
+        modifier = Modifier.padding(20.dp)
     ) {
         Image(
-            painter = painterResource(
-                id = R.drawable.ic_google_logo
-            ),
-            contentDescription = "google_icon"
+            painter = painterResource(id = R.drawable.ic_google_logo),
+            contentDescription = "google_icon",
+            modifier = Modifier.size(30.dp)
         )
         Text(
             text = SIGN_IN_WITH_GOOGLE,
-            modifier = Modifier.padding(5.dp),
             style = MaterialTheme.typography.titleMedium,
-            color = MaterialTheme.colorScheme.onPrimaryContainer
+            color = MaterialTheme.colorScheme.onPrimaryContainer,
+            modifier = Modifier
+                .padding(start = 10.dp, bottom = 3.dp)
         )
+
     }
 
 }

@@ -17,13 +17,16 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale.Companion.Crop
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
+import com.example.yumyum.presentation.profile.ProfileViewModel
 
 @Composable
 fun ProfileContent(
-    photoUrl: String,
-    displayName: String
+    viewModel: ProfileViewModel = hiltViewModel(),
+//    photoUrl: String,
+//    displayName: String
 ) {
 
     Box(
@@ -38,7 +41,7 @@ fun ProfileContent(
             Spacer(modifier = Modifier.height(48.dp))
             AsyncImage(
                 model = ImageRequest.Builder(LocalContext.current)
-                    .data(photoUrl)
+                    .data(viewModel.photoUrl)
                     .crossfade(true)
                     .build(),
                 contentDescription = null,
@@ -49,7 +52,7 @@ fun ProfileContent(
             )
             Spacer(modifier = Modifier.height(48.dp))
             Text(
-                text = displayName,
+                text = viewModel.displayName,
                 style = MaterialTheme.typography.titleLarge
             )
         }

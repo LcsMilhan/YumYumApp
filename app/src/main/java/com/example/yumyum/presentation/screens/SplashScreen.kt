@@ -10,6 +10,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieAnimationState
@@ -18,6 +19,7 @@ import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.animateLottieCompositionAsState
 import com.airbnb.lottie.compose.rememberLottieComposition
 import com.example.yumyum.R
+import com.example.yumyum.presentation.auth.AuthViewModel
 import com.example.yumyum.presentation.navigation.Screen
 
 @Composable
@@ -45,21 +47,28 @@ fun AnimationSplashScreen(
                 applyOpacityToLayers = true,
                 enableMergePaths = true
             )
-            NavigateToRegisterScreen(navController, splashAnimationState)
+            CheckUserBeforeNavigate(navController, splashAnimationState)
         }
     }
 
 }
 
 @Composable
-private fun NavigateToRegisterScreen(
+private fun CheckUserBeforeNavigate(
     navController: NavController,
     splashAnimationState: LottieAnimationState
 ) {
+    val viewModel: AuthViewModel = hiltViewModel()
 
     if (splashAnimationState.isAtEnd && splashAnimationState.isPlaying) {
-        navController.popBackStack()
-        navController.navigate(Screen.AuthScreen.route)
+        if (viewModel.isUserAuthenticated) {
+            navController.navigate(Screen.CategoriesScreen.route) {
+                navController.popBackStack()
+            }
+        } else {
+            navController.navigate(Screen.AuthScreen.route)
+        }
+
     }
 
 }
