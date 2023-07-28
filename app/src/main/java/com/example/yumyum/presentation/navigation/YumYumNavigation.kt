@@ -6,34 +6,40 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.example.yumyum.presentation.screens.AnimationSplashScreen
+import com.example.yumyum.presentation.screens.AuthScreen
 import com.example.yumyum.presentation.screens.CategoriesScreen
 import com.example.yumyum.presentation.screens.MealDetailScreen
 import com.example.yumyum.presentation.screens.MealsScreen
-import com.example.yumyum.presentation.screens.SignInScreen
+import com.example.yumyum.presentation.screens.ProfileScreen
 
 @Composable
 fun YumYumNavigation() {
     val navController = rememberNavController()
-
     NavHost(
         navController = navController,
-        startDestination = Screen.SplashScreen.route
+        startDestination = Screen.AuthScreen.route
     ) {
-
-        // Splash Screen
-        composable(
-            route = Screen.SplashScreen.route
-        ) {
-            AnimationSplashScreen(navController = navController)
-        }
-
-        // TODO: CHANGE CODE
         // SignIn Screen
         composable(
-            route = Screen.SignInScreen.route
+            route = Screen.AuthScreen.route
         ) {
-            SignInScreen(navController = navController)
+            AuthScreen(
+                navigateToProfileScreen = {
+                    navController.navigate(Screen.ProfileScreen.route)
+                }
+            )
+        }
+
+        // Profile Screen
+        composable(
+            route = Screen.ProfileScreen.route
+        ) {
+            ProfileScreen(
+                navigateToAuthScreen = {
+                    navController.popBackStack()
+                    navController.navigate(Screen.AuthScreen.route)
+                }
+            )
         }
 
         // Categories Screen
