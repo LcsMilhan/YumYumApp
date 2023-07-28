@@ -79,7 +79,6 @@ fun MealDetailScreen(
                     textAlign = TextAlign.Start,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 2.dp)
                 )
             }
             Card(

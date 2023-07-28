@@ -59,7 +59,7 @@ private fun NavigateToRegisterScreen(
 
     if (splashAnimationState.isAtEnd && splashAnimationState.isPlaying) {
         navController.popBackStack()
-        navController.navigate(Screen.SignInScreen.route)
+        navController.navigate(Screen.AuthScreen.route)
     }
 
 }

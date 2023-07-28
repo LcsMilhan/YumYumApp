@@ -70,7 +70,6 @@ fun MealsScreen(
                     textAlign = TextAlign.Start,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 2.dp)
                 )
             }
             LazyColumn(
