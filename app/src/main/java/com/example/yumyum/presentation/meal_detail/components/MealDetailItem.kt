@@ -24,7 +24,7 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
-import com.example.yumyum.domain.model.MealDetail
+import com.example.yumyum.domain.model.meals.MealDetail
 
 @Composable
 fun MealDetailItem(

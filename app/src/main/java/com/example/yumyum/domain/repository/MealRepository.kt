@@ -2,9 +2,9 @@ package com.example.yumyum.domain.repository
 
 
 import com.example.yumyum.common.Resource
-import com.example.yumyum.domain.model.CategoryResponse
-import com.example.yumyum.domain.model.MealDetailResponse
-import com.example.yumyum.domain.model.MealsResponse
+import com.example.yumyum.domain.model.meals.CategoryResponse
+import com.example.yumyum.domain.model.meals.MealDetailResponse
+import com.example.yumyum.domain.model.meals.MealsResponse
 import kotlinx.coroutines.flow.Flow
 
 interface MealRepository {

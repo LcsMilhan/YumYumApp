@@ -32,12 +32,12 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.yumyum.R
+import com.example.yumyum.presentation.HeadingTextComponent
+import com.example.yumyum.presentation.TextTitleMealInfo
 import com.example.yumyum.presentation.meal_detail.MealDetailViewModel
 import com.example.yumyum.presentation.meal_detail.components.MealDetailItem
 import com.example.yumyum.presentation.meal_detail.components.MealIngredients
 import com.example.yumyum.presentation.meal_detail.components.MealInstructions
-import com.example.yumyum.presentation.HeadingTextComponent
-import com.example.yumyum.presentation.TextTitleMealInfo
 
 @Composable
 fun MealDetailScreen(
@@ -79,7 +79,6 @@ fun MealDetailScreen(
                     textAlign = TextAlign.Start,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 2.dp)
                 )
             }
             Card(

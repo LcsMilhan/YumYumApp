@@ -29,9 +29,9 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.yumyum.R
+import com.example.yumyum.presentation.HeadingTextComponent
 import com.example.yumyum.presentation.meals_list.MealsListViewModel
 import com.example.yumyum.presentation.meals_list.components.SingleMealItem
-import com.example.yumyum.presentation.HeadingTextComponent
 
 @Composable
 fun MealsScreen(
@@ -70,7 +70,6 @@ fun MealsScreen(
                     textAlign = TextAlign.Start,
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(top = 2.dp)
                 )
             }
             LazyColumn(
