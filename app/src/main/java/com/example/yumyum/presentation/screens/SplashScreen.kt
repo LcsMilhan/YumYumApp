@@ -63,10 +63,16 @@ private fun CheckUserBeforeNavigate(
     if (splashAnimationState.isAtEnd && splashAnimationState.isPlaying) {
         if (viewModel.isUserAuthenticated) {
             navController.navigate(Screen.CategoriesScreen.route) {
-                navController.popBackStack()
+                popUpTo(navController.graph.id) {
+                    inclusive = true
+                }
             }
         } else {
-            navController.navigate(Screen.AuthScreen.route)
+            navController.navigate(Screen.AuthScreen.route) {
+                popUpTo(navController.graph.id) {
+                    inclusive = true
+                }
+            }
         }
 
     }

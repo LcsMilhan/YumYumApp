@@ -21,6 +21,7 @@ import com.example.yumyum.presentation.profile.components.ProfileContent
 import com.example.yumyum.presentation.profile.components.RevokeAccess
 import com.example.yumyum.presentation.profile.components.SignOut
 
+// TODO: CREATE PROFILE SCREEN 
 @Composable
 fun ProfileScreen(
     viewModel: ProfileViewModel = hiltViewModel(),
@@ -29,7 +30,7 @@ fun ProfileScreen(
 
     Box(
         Modifier
-            .fillMaxSize()
+            .fillMaxSize().padding(2.dp)
     ) {
         Column(
             Modifier
