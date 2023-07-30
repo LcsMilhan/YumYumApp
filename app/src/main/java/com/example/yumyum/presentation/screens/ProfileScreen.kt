@@ -30,7 +30,7 @@ fun ProfileScreen(
 
     Box(
         Modifier
-            .fillMaxSize().padding(2.dp)
+            .fillMaxSize()
     ) {
         Column(
             Modifier
