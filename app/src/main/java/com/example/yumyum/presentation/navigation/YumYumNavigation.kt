@@ -49,6 +49,7 @@ fun YumYumNavigation() {
             route = Screen.ProfileScreen.route
         ) {
             ProfileScreen(
+                navController = navController,
                 navigateToAuthScreen = {
                     navController.navigate(Screen.AuthScreen.route) {
                         popUpTo(navController.graph.id) {
