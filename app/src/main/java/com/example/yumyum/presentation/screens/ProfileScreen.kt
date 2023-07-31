@@ -90,11 +90,13 @@ fun ProfileScreen(
                     Icon(
                         painter = painterResource(R.drawable.icon_logout),
                         contentDescription = "sign_out_icon",
+                        tint = MaterialTheme.colorScheme.onBackground,
                         modifier = Modifier.alignByBaseline()
                     )
                     Text(
                         text = "Sign out",
                         style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onBackground,
                         modifier = Modifier.alignByBaseline()
                     )
                 }
@@ -111,11 +113,13 @@ fun ProfileScreen(
                     Icon(
                         painter = painterResource(R.drawable.revoke_access_icon),
                         contentDescription = "revoke_access_icon",
+                        tint = MaterialTheme.colorScheme.onBackground,
                         modifier = Modifier.alignByBaseline()
                     )
                     Text(
                         text = "Revoke access",
                         style = MaterialTheme.typography.bodyLarge,
+                        color = MaterialTheme.colorScheme.onBackground,
                         modifier = Modifier.alignByBaseline()
                     )
                 }
