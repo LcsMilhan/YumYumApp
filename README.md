@@ -1,7 +1,7 @@
 🍰🥗🍔 YumYumApp 🍔🥗🍰
 -
-Bem-vindo ao YumYumApp, um aplicativo incrível desenvolvido em Kotlin utilizando Jetpack Compose, Injeção de Dependências, Clean Architecture e MVVM
-para trazer a você uma experiência única ao descobrir deliciosas receitas culinárias.
+
+![Screens](https://github.com/LcsMilhan/YumYumApp/assets/128747056/1b3cace1-73ec-4155-8e08-408a7d177326)
 
 Visão Geral do Projeto
 -
@@ -11,7 +11,8 @@ informações detalhadas sobre ingredientes, instruções de preparo e muito mai
 Funcionalidades Principais
 -
 - Explorar Receitas: Navegue por uma ampla seleção de receitas de comidas e bebidas, com possibilidade de filtrar por categorias.  
-- Detalhes da Receita: Veja informações detalhadas sobre cada receita, incluindo lista de ingredientes e instruções de preparo.
+- Detalhes da Receita: Veja informações detalhadas sobre cada receita, incluindo lista de ingredientes, medidas e instruções de preparo.
+- Autenticação: Faça login usando sua conta do Google, com a opção de efetuar logout ou excluir sua conta.
 
 Tecnologias Utilizadas
 -
