@@ -3,41 +3,39 @@
 
 ![Screens](https://github.com/LcsMilhan/YumYumApp/assets/128747056/1b3cace1-73ec-4155-8e08-408a7d177326)
 
-Visão Geral do Projeto
+Project Overview
 -
-YumYum é um aplicativo de receitas que consome dados da API TheMealDB para apresentar aos usuários uma vasta coleção de pratos deliciosos, incluindo
-informações detalhadas sobre ingredientes, instruções de preparo e muito mais.
+YumYum is a recipe application that consumes data from TheMealDB API to present users with a vast collection of delicious dishes, including detailed information about ingredients, preparation instructions, and more.
 
-Funcionalidades Principais
+Features
 -
-- Explorar Receitas: Navegue por uma ampla seleção de receitas de comidas e bebidas, com possibilidade de filtrar por categorias.  
-- Detalhes da Receita: Veja informações detalhadas sobre cada receita, incluindo lista de ingredientes, medidas e instruções de preparo.
-- Autenticação: Faça login usando sua conta do Google, com a opção de efetuar logout ou excluir sua conta.
+- Explore Recipes: Browse through a wide selection of food and drink recipes, with the ability to filter by categories.
+- Recipe Details: View detailed information for each recipe, including the list of ingredients, measurements, and preparation instructions.
+- Authentication: Log in using your Google account, with the option to log out or delete your account.
 
-Tecnologias Utilizadas
+Technologies Used
 -
 - `Kotlin`
 - `Jetpack Compose`  
-- `Injeção de Dependências` 
+- `Dagger-Hilt` 
 - `Clean Architecture` 
 - `MVVM (Model-View-ViewModel)`
 - `Retrofit`
 - `Firebase auth`
 - `Firestore`
 
-Como Executar o Projeto
+How to Run the Project
 -
-- Certifique-se de ter o Android Studio instalado em seu computador.  
-- Clone este repositório em sua máquina local utilizando o comando: git clone https://github.com/LcsMilhan/YumYumApp.git  
-- Abra o projeto no Android Studio.  
-- Aguarde a sincronização do projeto com as dependências.  
-- Execute o aplicativo em um emulador ou dispositivo Android conectado.
+- Ensure you have Android Studio installed on your computer.
+- Clone this repository to your local machine using the command: git clone https://github.com/LcsMilhan/YumYumApp.git
+- Open the project in Android Studio.
+- Wait for the project to synchronize with its dependencies. 
+- Run the application on an emulator or connected Android device.
 
-Contribuições
+Contributions
 -
-Se você gostou do projeto e deseja contribuir, sinta-se à vontade para abrir uma issue relatando um bug ou uma sugestão de melhoria. Pull requests
-também são bem-vindos!
+If you enjoyed the project and would like to contribute, please feel free to open an issue to report a bug or a suggestion for improvement. Pull requests are also welcome!
 
-Créditos
+Credits
 -
-API fornecida por [TheMealDB](https://www.themealdb.com/) para disponibilizar as informações sobre as receitas.
+API provided by [TheMealDB](https://www.themealdb.com/) to provide recipe information.
