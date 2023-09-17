@@ -39,3 +39,7 @@ If you enjoyed the project and would like to contribute, please feel free to ope
 Credits
 -
 API provided by [TheMealDB](https://www.themealdb.com/) to provide recipe information.
+
+App Running
+-
+https://github.com/LcsMilhan/YumYumApp/assets/128747056/0ee88e84-e390-4c28-8ee1-ffdf8d506fb4
